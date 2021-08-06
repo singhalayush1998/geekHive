@@ -1,0 +1,107 @@
+.dashboardBody{
+    height: 100vh;
+    width: 100%;
+    /* background-color:#00152A; */
+}
+.logo{margin-top:10px;
+ height:55px;
+ width:55px;
+ text-align:center;
+ margin-left: auto;
+ margin-right: auto;
+
+}
+
+.container{ 
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.profiles{ 
+
+    display:flex;
+    flex-direction: column;
+    width:10%;
+    height: 100vh;
+    background-color:#00152A;
+    
+}
+.profiles-container{
+ height:80px;
+ width:100%;
+ margin-top: 15px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ color:white;
+
+
+}
+.profiles-container:hover{
+  background-color:#26397B;
+   
+   
+   }
+ .profiles-container>img{
+    height:30px;
+    width:30px;
+  
+   
+   }
+.right-container{ 
+    height: 100vh;
+    width:100%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+.Select-container{ 
+  height: 100vh;
+  padding:20px;
+    width:96.5%;
+    background-color:rgb(241,241,241);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-between;
+}
+
+.nav-container>img{ 
+    height: 60px;
+   margin-left:30px;
+   margin-top: 5px;
+
+
+}
+.midContaintBox{
+    text-align: left;
+    height: 82.5vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.Members{ 
+    height: 82.5vh;
+    width: 24%;
+    padding: 0px 10px;
+    background-color: white;
+    border-radius:10px;
+
+}
+.midContaintBox2{
+    height: 82.5vh;
+    width: 69%;
+    padding: 0px 15px;
+    background-color: white;
+    border-radius:10px;
+
+}
+
+

@@ -1,6 +1,7 @@
 import React from 'react'
 import "./publiccard.css"
-function Publiccard() {
+import {Link} from "react-router-dom"
+function Publiccard({group_name,description}) {
     return (
         <>
         <div className="card">
@@ -8,10 +9,10 @@ function Publiccard() {
 
             </div>
           <div className="title" >
-            <h3>mardala</h3>
-            <p>Line 14:10:  'profile' is assigned a value but never used </p>
+            <h3>{group_name}</h3>
+            <p>{description}</p>
             </div>
-            <div className="btn"> join</div>
+        <Link to="/dashboard"> <div className="btn"> join</div></Link>
             
         </div>
         </>
