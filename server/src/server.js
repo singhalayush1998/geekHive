@@ -14,11 +14,13 @@ const PORT = process.env.PORT;
 //controllers
 const {register, login} = require("./controllers/user.controller")
 const PublicGroup = require("./controllers/publicGroup.controller")
+const PublicGroupMessage = require("./controllers/publicGroupMessage.controller")
 
 app.post("/register",register)
 app.post("/login",login)
 
 app.use(PublicGroup)
+app.use(PublicGroupMessage)
 
 const start = async () => {
   await connect();
