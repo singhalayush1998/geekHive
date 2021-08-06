@@ -1,0 +1,72 @@
+.dashboardBody{
+    height: 100vh;
+    width: 100%;
+    background-color:blue;
+}
+.dashboardNav{
+    height:80px;
+    width:100%;
+    background-color:green;
+}
+.container{ 
+    display:flex;
+    flex-direction: row;
+
+}
+.profiles{ 
+
+    display:flex;
+    flex-direction: column;
+    width:20%;
+    
+}
+.profiles-container{
+ height:50px;
+ width:100%;
+ margin-top: 5px;
+ margin-bottom:5px;
+ background-color:yellow;
+
+}
+.right-container{ 
+    height: 87vh;
+    width:100%;
+    background-color:red;
+    display: flex;
+    flex-direction: column;
+
+}
+.Select-container{ 
+    height: 87vh;
+    width:100%;
+    background-color:aqua
+}
+.nav-container{ 
+    height: 80px;
+    width: 100%;
+background-color:white;
+display: flex;
+
+
+}
+.input-container{
+ height: 80px;
+ width: 100%;
+}
+.material{
+width: 100%;
+height: 100%;
+background-color:grey;
+
+
+}
+.discuss{ 
+width: 100%;
+height: 100%;
+
+
+background-color:rgb(100, 0, 0);
+
+
+
+}
