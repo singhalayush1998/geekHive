@@ -1,0 +1,30 @@
+.card{
+    height:300px;
+    width:300px;
+    background-color:red;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2%;
+}
+.profile{
+    height:100px;
+    width:100px;
+    border-radius: 50px;
+    background-color:white;
+}
+.btn{
+    width:200px;
+    height:25px;
+    border-radius: 10px;
+    background-color:#26397B;
+    color: white;
+   
+
+}
+title{
+    height:100px;
+}

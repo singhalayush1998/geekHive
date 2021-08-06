@@ -1,72 +1,77 @@
 .dashboardBody{
     height: 100vh;
     width: 100%;
-    background-color:blue;
+    /* background-color:#00152A; */
 }
-.dashboardNav{
-    height:80px;
-    width:100%;
-    background-color:green;
+.logo{margin-top:10px;
+ height:55px;
+ width:55px;
+ text-align:center;
+ margin-left: auto;
+ margin-right: auto;
+
 }
+
 .container{ 
     display:flex;
     flex-direction: row;
-
+    justify-content: center;
+    
 }
 .profiles{ 
 
     display:flex;
     flex-direction: column;
-    width:20%;
+    width:10%;
+    height: 100vh;
+    background-color:#00152A;
     
 }
 .profiles-container{
- height:50px;
+ height:80px;
  width:100%;
- margin-top: 5px;
- margin-bottom:5px;
- background-color:yellow;
+ margin-top: 15px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ color:white;
+
 
 }
+.profiles-container:hover{
+  background-color:#26397B;
+   
+   
+   }
+ .profiles-container>img{
+    height:30px;
+    width:30px;
+  
+   
+   }
 .right-container{ 
-    height: 87vh;
+    height: 100vh;
     width:100%;
-    background-color:red;
+
     display: flex;
     flex-direction: column;
 
 }
 .Select-container{ 
-    height: 87vh;
-    width:100%;
-    background-color:aqua
+  height: 100vh;
+  padding:20px;
+    width:96.5%;
+    background-color:rgb(241,241,241);
 }
-.nav-container{ 
-    height: 80px;
-    width: 100%;
-background-color:white;
-display: flex;
 
-
-}
-.input-container{
- height: 80px;
- width: 100%;
-}
-.material{
-width: 100%;
-height: 100%;
-background-color:grey;
+.nav-container>img{ 
+    height: 60px;
+   margin-left:30px;
+   margin-top: 5px;
 
 
 }
-.discuss{ 
-width: 100%;
-height: 100%;
-
-
-background-color:rgb(100, 0, 0);
 
 
 
-}
