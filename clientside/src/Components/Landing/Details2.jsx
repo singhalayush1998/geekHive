@@ -20,8 +20,6 @@ const Details2 = () => {
                     <p>So, whenever you want to be productive just visit our website, share your screen or camera, and then get to study. It’s that simple.</p>
                 </div>
             </Container2>
-
-
         </Wrapper>
     )
 }
@@ -29,17 +27,19 @@ const Details2 = () => {
 export {Details2}
 
 const Wrapper = styled.div`
-    padding-top: 60px;
+    width: 90%;
+    margin: auto;
+    margin-top: -90px;
     /* display: flex; */
 
 
 `
 const Container1 = styled.div`
     display: flex;
-    gap: 105px;
+    gap: 20px;
     margin-top: 80px;
     h1{
-        margin-top: 100px;
+        margin-top: 180px;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: #25397B;
         padding-left: 15%;
@@ -58,7 +58,7 @@ const Container1 = styled.div`
 `
 const Container2 = styled.div`
     display: flex;
-    gap: 155px;
+    gap: 25px;
     margin-top: 80px;
     h1{
         margin-top: 50px;

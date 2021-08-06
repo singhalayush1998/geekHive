@@ -12,7 +12,8 @@ const publicGroupSchema = new mongoose.Schema(
         material:[reqString],
         description: reqString,
         members:[mongoose.Schema.Types.ObjectId]
-    }
+    },
+    { timestamps: true }
 );
 
 

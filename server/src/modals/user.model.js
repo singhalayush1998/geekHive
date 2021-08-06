@@ -13,7 +13,8 @@ const usersSchema = new mongoose.Schema(
       email:reqString,
       password: reqString,
       profilePic:{...reqString,required:false}
-    }
+    },
+    { timestamps: true }
 );
 
 usersSchema.pre("save", function(next){

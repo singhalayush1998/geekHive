@@ -1,11 +1,12 @@
-
 import './App.css';
-import Dashboard from './component/publicRoomDashboard/dashboard';
+
+import { Routes } from './Routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-    <Dashboard/>
+    <div>
+      <Routes/>
+
     </div>
   );
 }
