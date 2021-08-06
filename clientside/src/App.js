@@ -1,7 +1,7 @@
 
 import './App.css';
-import Dashboard from './component/publicRoomDashboard/dashboard';
-
+import { Landing } from './Components/Landing/Landing';
+import { Navbar } from './Components/Navbar/Navbar';
 
 function App() {
   return (
