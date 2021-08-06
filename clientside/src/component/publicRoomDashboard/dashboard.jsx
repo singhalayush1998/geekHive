@@ -1,45 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import "./dashboard.css";
+import logo from "../../assets/logo.jpeg";
+import Public from "../../assets/public.png";
+import Private from "../../assets/private.png";
+import mine from "../../assets/mygroups.png";
+import hive from "../../assets/hivetext.jpeg";
+import Publiccard from "../Public room/publiccard";
+
 
 function Dashboard() {
+  const [Publics, setpublic] = useState(true)
+  const [privates, setprivate] = useState(false)
+  const [profile, setprofile] = useState(false)
+
+  const handlepublic=()=>{ 
+    setpublic(true)
+    setprofile(false)
+    setprivate(false)
+  }
+  const handleprivate=()=>{ 
+    setpublic(false)
+    setprofile(false)
+    setprivate(true)
+    
+  }
+  const handleprofile=()=>{ 
+    setpublic(false)
+    setprofile(true)
+    setprivate(false)
+  }
   return (
     <>
       <div className="dashboardBody">
-        <div className="dashboardNav"></div>
+       
         <div className="container">
+
           <div className="profiles">
-            <div className="profiles-container">
-              <img src="" alt="" />
-              <div> </div>
+            <img className="logo" src={logo} alt="" />
+            <div className="profiles-container" onClick={handlepublic}>
+              <img src={Public} alt="" />
+              <strong>Public Groups</strong>
             </div>
-            <div className="profiles-container">
-              <img src="" alt="" />
-              <div> </div>
+            <div className="profiles-container" onClick={handleprivate}>
+              <img src={Private} alt="" />
+              <strong>Private Groups</strong>
             </div>
-            <div className="profiles-container">
-              <img src="" alt="" />
-              <div> </div>
+            <div className="profiles-container" onClick={handleprofile}>
+              <img src={mine} alt="" />
+              <strong>Profile</strong>
             </div>
-            <div className="profiles-container">
-              <img src="" alt="" />
-              <div> </div>
-            </div>
+          
           </div>
           <div className="right-container">
             <div className="nav-container">
-              <div className="material">
-                <h2>Material</h2>  
-              </div>
-              <div className="discuss">
-           
-              <h2>Discussions</h2>
-              </div>
+              <img src={hive} alt="" />
+             
             </div>
             <div className="Select-container">
 
-            </div>
-            <div className="input-container">
-                
+
+              {Publics&& <Publiccard/>
+
+              }
             </div>
           </div>
         </div>

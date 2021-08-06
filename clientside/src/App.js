@@ -1,12 +1,11 @@
 
 import './App.css';
-import { Landing } from './Components/Landing/Landing';
-import { Navbar } from './Components/Navbar/Navbar';
+import Dashboard from './component/publicRoomDashboard/dashboard';
 
 function App() {
   return (
     <div className="App">
-    
+    <Dashboard/>
     </div>
   );
 }
