@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./dashboard.css";
 import logo from "../../assets/logo.jpeg";
 import Public from "../../assets/public.png";
@@ -6,12 +6,25 @@ import Private from "../../assets/private.png";
 import mine from "../../assets/mygroups.png";
 import hive from "../../assets/hivetext.jpeg";
 import Publiccard from "../Public room/publiccard";
+import axios from "axios"
 
 
 function Dashboard() {
   const [Publics, setpublic] = useState(true)
   const [privates, setprivate] = useState(false)
   const [profile, setprofile] = useState(false)
+ const [groups, setGroups]= useState([])
+
+useEffect(() => {
+ 
+  axios.get("http://localhost:1997/newGroup")
+  .then((response) =>setGroups(response.data))
+  
+
+}, [ ])
+
+
+
 
   const handlepublic=()=>{ 
     setpublic(true)
@@ -59,7 +72,13 @@ function Dashboard() {
             <div className="Select-container">
 
 
-              {Publics&& <Publiccard/>
+              {Publics&& groups?.map(el =><Publiccard
+               group_name={el.group_name}
+               description={el.description}
+               members={el.members}
+               
+
+              />) 
 
               }
             </div>
