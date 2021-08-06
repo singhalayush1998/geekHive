@@ -10,12 +10,12 @@ const publicGroupSchema = new mongoose.Schema(
     {
         group_name : reqString,
         material:[reqString],
-        desp:{type:string, required: true},
+        description: reqString,
         members:[mongoose.Schema.Types.ObjectId]
     }
 );
 
 
-const publicGroupModel = mongoose.model('user', publicGroupSchema);
+const publicGroupModel = mongoose.model('publicgroups', publicGroupSchema);
 
 module.exports = publicGroupModel;
