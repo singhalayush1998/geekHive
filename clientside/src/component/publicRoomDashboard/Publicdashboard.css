@@ -122,7 +122,7 @@
     display: flex;
     justify-content:space-between;
     margin: 12px 0px;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 .leave{
   background-color:rgb(94,186,68);
@@ -131,7 +131,7 @@
   justify-content:center;
   align-items: center;
   border-radius:20px;
-  width: 135px;
+  width: 145px;
   color:white;
   cursor: pointer;
   

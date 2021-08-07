@@ -71,9 +71,14 @@ router.patch("/removemember/:groupId",async (req,res)=>{
         if(!group){
             res.status(401).json({message:"Please give a valid Group id"})
         }
-        let newMembers = group.members.filter((item)=>item!== userId)
-        group.members = newMembers
-        res.status(201).json({group:group})
+        const newMembers = await Group.findOneAndUpdate(
+          { _id: req.params.groupId },
+          { $pull: { members: userId } },
+          {
+            new: true,
+          }
+        );
+        res.status(201).json({group:newMembers})
     }catch(err){
         res.status(500).json(err)
     }

@@ -7,6 +7,7 @@ import mine from "../../assets/mygroups.png";
 import hive from "../../assets/hivetext.jpeg";
 import Publiccard from "../Public room/publiccard";
 import axios from "axios"
+import { Redirect } from "react-router";
 
 
 function Dashboard() {
@@ -42,6 +43,13 @@ useEffect(() => {
     setprofile(true)
     setprivate(false)
   }
+
+  let loginedUserId = localStorage.getItem("user")
+    loginedUserId = JSON.parse(loginedUserId)
+  if(loginedUserId == undefined){
+    return <Redirect push to="/login" />
+  }
+
   return (
     <>
       <div className="dashboardBody">

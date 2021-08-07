@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
 import styled from "styled-components"
 // import imageicon from "./loginicon.jpg"
 // import iconimg from "./iconimg.jpeg"
@@ -23,6 +24,11 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(user))
     }
 
+    let loginedUserId = localStorage.getItem("user")
+    loginedUserId = JSON.parse(loginedUserId)
+  if(loginedUserId !== undefined){
+    return <Redirect push to="/dashboard" />
+  }
     return (
         <>
             <Wrapper>
