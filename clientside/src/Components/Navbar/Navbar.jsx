@@ -13,9 +13,7 @@ const Navbar = () => {
                     <p>Contact</p>
                     <Link to="/login"><p>Login</p></Link>
                     <Link to="/signup"><button>Sign Up</button></Link>
-                    {/* <div>
-                        U
-                    </div> */}
+                    
                 </NavItems>
             </Container>
         </Wrapper>
