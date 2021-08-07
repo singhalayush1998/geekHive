@@ -89,19 +89,26 @@
 }
 .Members{ 
     height: 82.5vh;
-    width: 24%;
+    
+    width: 40%;
     padding: 0px 10px;
     background-color: white;
     border-radius:10px;
+    position:fixed;
+    margin-left: 850px;
 
 }
 .midContaintBox2{
     height: 82.5vh;
     width: 69%;
     padding: 0px 15px;
+   
+
+}
+.disscussiobBox{
+    width:100%;
+    height:fit-content;
     background-color: white;
     border-radius:10px;
 
 }
-
-
