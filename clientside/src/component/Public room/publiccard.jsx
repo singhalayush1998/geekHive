@@ -30,7 +30,7 @@ function Publiccard({group_name,description, roomid}) {
             <h3>{group_name}</h3>
             <p>{description}</p>
             </div>
-        <Link onClick={(e) => goToRoom(e)} to={`/room?room=${roomid}`}> <div className="btn"> join</div></Link>
+        <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`}> <div className="btn"> join</div></Link>
             
         </div>
         </>

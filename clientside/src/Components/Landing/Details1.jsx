@@ -1,7 +1,6 @@
 import { init } from "ityped";
 import { useEffect, useRef } from "react";
 import styled from "styled-components"
-import svg from "../../Images/tempp.jpeg"
 import {Link} from "react-router-dom"
 
 const Intro = () => {

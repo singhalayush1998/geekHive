@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import queryString from "query-string"
 import io from "socket.io-client"
-import "./chat.css"
+// import "./chat.css"
 import {InfoBar} from "./InfoBar"
-import {Input} from "./Input"
+import {InputBox} from "./InputBox"
 import {Messages} from "./Messages"
+import { useParams } from 'react-router-dom'
+import styled from "styled-components"
 
 
 const ENDPOINT = 'localhost:2244'
 let socket;
 
-const Chat = ({location}) => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
+const Chat = () => {
+    let {id} = useParams()
+    const [name, setName] = useState('isha');
+    const [room, setRoom] = useState(id);
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
+    // useEffect(() => {
+    //     axios.get("")
+    // })
+
     useEffect(() => {
-         const { name, room } = queryString.parse(location.search);
 
         socket = io(ENDPOINT);
 
-        setRoom(room);
-        setName(name)
 
         socket.emit('join', { name, room }, (error) => {
+            console.log(room, name)
             if(error) {
               alert(error);
             }
         });
-
-        // return() => {
-        //     socket.emit('disconnect')
-        //     socket.off()
-        // }
         
-    },[ENDPOINT, location.search])
+    },[ENDPOINT])
 
     useEffect(() => {
         socket.on('message', message => {
@@ -59,14 +59,14 @@ const Chat = ({location}) => {
 
 
     return (
-        <div className="outerContainer">
-            <div className="container">
+        <Wrapper>
+            <div>
                 <InfoBar room={room} />
                 <Messages messages={messages} name={name} />
-                <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+                <InputBox message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </div>
         {/* <TextContainer users={users}/> */}
-        </div>
+        </Wrapper>
     )
 }
 
