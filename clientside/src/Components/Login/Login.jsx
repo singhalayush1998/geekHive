@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [user, setUser] = useState([])
 
-    console.log(email, password)
+    // console.log(email, password)
 
     const handleLogin = () => {
         axios.post("http://localhost:1997/login", {
@@ -19,8 +19,8 @@ const Login = () => {
         })
         .then((res) => setUser(res.data.data))
         .catch((err) => console.log(err))
-        console.log(user)
-        localStorage.setItem("user",user)
+        //console.log(user)
+        localStorage.setItem("user", JSON.stringify(user))
     }
 
     return (

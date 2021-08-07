@@ -5,25 +5,24 @@ import axios from 'axios'
 function Publiccard({group_name,description, roomid}) {
 
     // const [added, setadded] = useState(false)
-
+    let loginedUserId = localStorage.getItem("user")
+    loginedUserId = JSON.parse(loginedUserId)
     const goToRoom = (e) => {
+        console.log(loginedUserId._id,roomid)
+        const payload = {
+            id: loginedUserId._id.toString()
+        }
         if(!roomid){
             e.preventDefault()
         }
-        axios.patch(`http://localhost:1997/addmember?room=${roomid}`, {
-            id: "610e0b421369543e5c6abecf"
-        })
-        .then((res) => console.log(true))
+        axios.patch(`http://localhost:1997/addmember?room=${roomid}`, payload)
+        .then((res) => console.log(res.data))
     }
-
     // if(added){
     //     return <Redirect push to=""/>
-
     // }
-
-  let str=group_name.split("")
-  str=str[0]
-
+    let str=group_name.split("")
+    str=str[0]
     return (
         <>
         <div className="card">

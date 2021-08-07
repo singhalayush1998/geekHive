@@ -8,8 +8,8 @@ const reqString = {
 
 
 const PublicMessageSchema=  mongoose.Schema({
-    groupid:reqString,
-    senderid:reqString,
+    groupid:[{type:mongoose.Schema.Types.ObjectId,required:true,ref:"publicgroup"}],
+    senderid:[{type:mongoose.Schema.Types.ObjectId,required:true,ref:"user"}],
     text: reqString,
 },
 { timestamps: true }
