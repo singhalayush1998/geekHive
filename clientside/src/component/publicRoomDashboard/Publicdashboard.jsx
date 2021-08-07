@@ -7,6 +7,7 @@ import hive from "../../assets/hivetext.jpeg";
 import axios from "axios";
 import { PDFReader } from "reactjs-pdf-reader";
 import { Chat } from "../../Components/Discussions/Chat";
+import { Link } from "react-router-dom";
 
 function PublicDashboard() {
 
@@ -51,6 +52,10 @@ function PublicDashboard() {
           <div className="right-container">
             <div className="nav-container">
               <img src={hive} alt="" />
+              <div className="remove">
+             <Link style={{textDecoration: "none"}} to="/dashboard">  <div className="leave"> 🤫 Leave Quitely</div></Link> 
+                <div className="exit"> Exit Group</div>
+                 </div>
             </div>
             <div className="Select-container">
               <div className="midContaintBox">

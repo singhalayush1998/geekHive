@@ -1,10 +1,9 @@
-import React from 'react'
-import "./publiccard.css"
-import {Link, Redirect} from "react-router-dom"
-import axios from 'axios'
-function Publiccard({group_name,description, roomid}) {
+import React from "react";
+import "./publiccard.css";
+import { Link, Redirect } from "react-router-dom";
+import axios from "axios";
+function Publiccard({ group_name, description, roomid }) {
 
-    // const [added, setadded] = useState(false)
     let loginedUserId = localStorage.getItem("user")
     loginedUserId = JSON.parse(loginedUserId)
     const goToRoom = (e) => {
@@ -34,10 +33,10 @@ function Publiccard({group_name,description, roomid}) {
             <p>{description}</p>
             </div>
         <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`}> <div className="btn"> join</div></Link>
-            
-        </div>
-        </>
-    )
+
+      </div>
+    </>
+  );
 }
 
-export default Publiccard
+export default Publiccard;
