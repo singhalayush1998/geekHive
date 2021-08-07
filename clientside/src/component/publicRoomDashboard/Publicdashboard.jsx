@@ -19,7 +19,7 @@ useEffect(() => {
   .then((response) =>setGroups(response.data))
   
 
-}, [ ])
+}, [])
 
 
 
@@ -33,7 +33,6 @@ useEffect(() => {
     setpublic(false)
     setprofile(false)
     setprivate(true)
-    
   }
 
   return (
@@ -56,7 +55,7 @@ useEffect(() => {
           </div>
           <div className="right-container">
             <div className="nav-container">
-              <img src={hive} alt="" />
+              <img src={hive} alt=""/>
              
             </div>
             <div className="Select-container">

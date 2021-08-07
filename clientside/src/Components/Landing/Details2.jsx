@@ -27,7 +27,6 @@ const Details2 = () => {
 export {Details2}
 
 const Wrapper = styled.div`
-    width: 90%;
     margin: auto;
     margin-top: -90px;
     /* display: flex; */

@@ -30,11 +30,11 @@ const Wrapper = styled.div`
     background-color: #fff;
 `
 const Container = styled.div`
-    width: 80%;
+    width: 90%;
     margin: 0px auto 0 auto;
     height: 60px;
     img {
-        width: 18%;
+        width: 15%;
     }
     display: flex;
     justify-content: space-between;
@@ -54,6 +54,7 @@ const NavItems =styled.div`
         align-items: center;
         text-align: center;
         font-size: 28px;
+        cursor:pointer; 
     }
     p{
         color: #25397B;
