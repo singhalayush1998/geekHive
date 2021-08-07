@@ -8,30 +8,56 @@ import axios from "axios";
 import { PDFReader } from "reactjs-pdf-reader";
 import { Chat } from "../../Components/Discussions/Chat";
 import { Link } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router";
 
 function PublicDashboard() {
+  
+  // const [publics, setpublic] = useState(true);
+  // const [privates, setprivate] = useState(false);
+  // const [profile, setprofile] = useState(false);
+  const [groupData, setGroupsData] = useState([]);
+  const [afterExit, setafterExitData] = useState([]);
 
-  const [publics, setpublic] = useState(true);
-  const [privates, setprivate] = useState(false);
-  const [profile, setprofile] = useState(false);
-  const [groups, setGroups] = useState([]);
-
+  let loginedUserId = localStorage.getItem("user")
+  loginedUserId = JSON.parse(loginedUserId)
+  
+  const {id} = useParams()
+  const history = useHistory()  
   useEffect(() => {
     axios
-      .get("http://localhost:1997/newGroup")
-      .then((response) => setGroups(response.data));
-  }, []);
+      .get(`http://localhost:1997/newGroup/${id}`)
+      .then((res) => setGroupsData(res.data))
+  }, [id]);
 
-  const handlediscussion = () => {
-    setpublic(true);
-    setprofile(false);
-    setprivate(false);
-  };
-  const handlematerial = () => {
-    setpublic(false);
-    setprofile(false);
-    setprivate(true);
-  };
+  // const handlediscussion = () => {
+  //   setpublic(true);
+  //   setprofile(false);
+  //   setprivate(false);
+  // };
+  // const handlematerial = () => {
+  //   setpublic(false);
+  //   setprofile(false);
+  //   setprivate(true);
+  // };
+  // if(groupData.){
+  //   return <Redirect push to="/login" />
+  // }
+  
+  
+ 
+
+  if(loginedUserId == undefined){
+    return <Redirect push to="/login" />
+  }
+  const handleExitGroup=()=>{
+    let payload = {
+      id:loginedUserId._id
+    }
+    axios
+      .patch(`http://localhost:1997/removemember/${id}`,payload)
+      .then((res) =>history.push("/dashboard"));
+  }
+
 
 
   return (
@@ -40,11 +66,11 @@ function PublicDashboard() {
         <div className="container">
           <div className="profiles">
             <img className="logo" src={logo} alt="" />
-            <div className="profiles-container" onClick={handlediscussion}>
+            <div className="profiles-container">
               <img src={discussion} alt="" />
               <strong>Discussion</strong>
             </div>
-            <div className="profiles-container" onClick={handlematerial}>
+            <div className="profiles-container">
               <img src={material} alt="" />
               <strong>Material</strong>
             </div>
@@ -53,9 +79,9 @@ function PublicDashboard() {
             <div className="nav-container">
               <img src={hive} alt="" />
               <div className="remove">
-             <Link style={{textDecoration: "none"}} to="/dashboard">  <div className="leave"> 🤫 Leave Quitely</div></Link> 
-                <div className="exit"> Exit Group</div>
-                 </div>
+                <Link style={{textDecoration: "none"}} to="/dashboard">  <div className="leave"> 🤫 Leave Quitely</div></Link> 
+                <div className="exit" onClick={handleExitGroup}> Exit Group</div>
+              </div>
             </div>
             <div className="Select-container">
               <div className="midContaintBox">

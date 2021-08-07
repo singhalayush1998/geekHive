@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./publiccard.css";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
@@ -17,6 +17,11 @@ function Publiccard({ group_name, description, roomid }) {
         axios.patch(`http://localhost:1997/addmember?room=${roomid}`, payload)
         .then((res) => console.log(res.data))
     }
+
+    if(loginedUserId == undefined){
+      return <Redirect push to="/login" />
+    }
+
     // if(added){
     //     return <Redirect push to=""/>
     // }
@@ -32,7 +37,7 @@ function Publiccard({ group_name, description, roomid }) {
             <h3>{group_name}</h3>
             <p>{description}</p>
             </div>
-        <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`}> <div className="btn"> join</div></Link>
+        <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`} style={{textDecoration:"none"}}> <div className="btn"> Join</div></Link>
 
       </div>
     </>
