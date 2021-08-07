@@ -68,7 +68,7 @@ function PublicDashboard() {
                 <div className="newone">
                         U
                     </div>
-            <div className="profiles-container" onClick={handlediscussion}>
+            <div className="profiles-container" >
 
               <img src={discussion} alt="" />
               <strong>Discussion</strong>
