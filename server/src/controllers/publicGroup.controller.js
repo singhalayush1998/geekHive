@@ -39,14 +39,14 @@ router.get("/newGroup/:id", async (req, res) => {
     }
 });
 
-router.patch("/addmember/:groupId",async (req,res)=>{
+router.patch("/addmember",async (req,res)=>{
     try{
         const userId = req.body.id
         const userExists =await User.findById(userId)
         if(!userExists){
             res.status(401).json({message:"User doesn't exist please sign up"})
         }
-        const group =await Group.findById(req.params.groupId)
+        const group =await Group.findById(req.query.room)
         if(!group){
             res.status(401).json({message:"Please give a valid Group id"})
         }

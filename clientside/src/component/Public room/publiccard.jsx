@@ -1,7 +1,25 @@
 import React from 'react'
 import "./publiccard.css"
-import {Link} from "react-router-dom"
-function Publiccard({group_name,description}) {
+import {Link, Redirect} from "react-router-dom"
+import axios from 'axios'
+function Publiccard({group_name,description, roomid}) {
+
+    // const [added, setadded] = useState(false)
+
+    const goToRoom = (e) => {
+        if(!roomid){
+            e.preventDefault()
+        }
+        axios.patch(`http://localhost:1997/addmember?room=${roomid}`, {
+            id: "610e0b421369543e5c6abecf"
+        })
+        .then((res) => console.log(true))
+    }
+
+    // if(added){
+    //     return <Redirect push to=""/>
+    // }
+
     return (
         <>
         <div className="card">
@@ -12,7 +30,7 @@ function Publiccard({group_name,description}) {
             <h3>{group_name}</h3>
             <p>{description}</p>
             </div>
-        <Link to="/dashboard"> <div className="btn"> join</div></Link>
+        <Link onClick={(e) => goToRoom(e)} to={`/room?room=${roomid}`}> <div className="btn"> join</div></Link>
             
         </div>
         </>

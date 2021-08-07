@@ -76,6 +76,7 @@ useEffect(() => {
                group_name={el.group_name}
                description={el.description}
                members={el.members}
+               roomid={el._id}
                
 
               />) 
