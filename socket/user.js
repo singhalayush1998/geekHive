@@ -1,15 +1,15 @@
 const users = [];
 
 const addUser = ({ id, name, room }) => {
-  name = name;
-  room = room;
+  // name = name;
+  // room = room;
 
-  const existingUser = users.find((user) => user.room === room && user.name === name);
+  // const existingUser = users.find((user) => user.room === room && user.name === name);
 
-  if(!name) return { error: 'Username are required.' };
-  if(!room) return { error: 'room are required.' };
+  // if(!name) return { error: 'Username are required.' };
+  // if(!room) return { error: 'room are required.' };
 
-  if(existingUser) return {existingUser}
+  // if(existingUser) return {users}
 
 
   const user = { id, name, room };
