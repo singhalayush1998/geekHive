@@ -9,9 +9,9 @@ const Routes = () => {
     return (
         <Switch>
             <Route exact path="/">
-                {/* <Navbar/>
-                <Landing/> */}
-                <PublicDashboard/>
+                <Navbar/>
+                <Landing/>
+                {/* <PublicDashboard/> */}
             </Route>
             <Route exact path="/dashboard">
                 <Dashboard/>

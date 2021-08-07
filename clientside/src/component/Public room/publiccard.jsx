@@ -18,13 +18,17 @@ function Publiccard({group_name,description, roomid}) {
 
     // if(added){
     //     return <Redirect push to=""/>
+
     // }
+
+  let str=group_name.split("")
+  str=str[0]
 
     return (
         <>
         <div className="card">
             <div className="profile">
-
+               <h1>{str}</h1>
             </div>
           <div className="title" >
             <h3>{group_name}</h3>
