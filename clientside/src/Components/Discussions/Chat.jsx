@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import queryString from "query-string"
 import io from "socket.io-client"
-// import "./chat.css"
 import {InfoBar} from "./InfoBar"
 import {InputBox} from "./InputBox"
 import {Messages} from "./Messages"
@@ -36,7 +34,7 @@ const Chat = () => {
             }
         });
         
-    },[ENDPOINT])
+    },[ENDPOINT, id])
 
     useEffect(() => {
         socket.on('message', message => {
@@ -60,14 +58,26 @@ const Chat = () => {
 
     return (
         <Wrapper>
-            <div>
+            <Container>
                 <InfoBar room={room} />
-                <Messages messages={messages} name={name} />
+                    <Messages messages={messages} name={name} />
                 <InputBox message={message} setMessage={setMessage} sendMessage={sendMessage} />
-            </div>
-        {/* <TextContainer users={users}/> */}
+            </Container>
         </Wrapper>
     )
 }
 
 export {Chat}
+
+const Wrapper = styled.div`
+    padding: 3% 2%;
+    display: flex;
+    flex-direction: column;
+`
+const Container = styled.div`
+
+`
+
+// const MessageBox = styled.div`
+
+// `
