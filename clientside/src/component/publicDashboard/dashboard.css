@@ -59,14 +59,14 @@
 
 }
 .Select-container{ 
-  height: 100vh;
-  padding:20px;
+    height: 100vh;
+     padding:20px;
     width:96.5%;
     background-color:rgb(241,241,241);
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    justify-content: space-between;
+    
 }
 
 .nav-container>img{ 
