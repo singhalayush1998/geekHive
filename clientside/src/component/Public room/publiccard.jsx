@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./publiccard.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link} from "react-router-dom";
 import axios from "axios";
-function Publiccard({ group_name, description, roomid }) {
+function Publiccard({ group_name, description, roomid ,members}) {
 
     let loginedUserId = localStorage.getItem("user")
     loginedUserId = JSON.parse(loginedUserId)
@@ -18,13 +18,7 @@ function Publiccard({ group_name, description, roomid }) {
         .then((res) => console.log(res.data))
     }
 
-    if(loginedUserId == undefined){
-      return <Redirect push to="/login" />
-    }
 
-    // if(added){
-    //     return <Redirect push to=""/>
-    // }
     let str=group_name.split("")
     str=str[0]
     return (
@@ -37,7 +31,13 @@ function Publiccard({ group_name, description, roomid }) {
             <h3>{group_name}</h3>
             <p>{description}</p>
             </div>
-        <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`} style={{textDecoration:"none"}}> <div className="btn"> Join</div></Link>
+            {
+              members?.includes(loginedUserId?._id)?
+                <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`} style={{textDecoration:"none"}}> <div className="btn"> Enter</div></Link>
+                :
+                <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`} style={{textDecoration:"none"}}> <div className="btn"> Join</div></Link>
+            }
+        {/* <Link onClick={(e) => goToRoom(e)} to={`/room/${roomid}`} style={{textDecoration:"none"}}> <div className="btn"> Join</div></Link> */}
 
       </div>
     </>
