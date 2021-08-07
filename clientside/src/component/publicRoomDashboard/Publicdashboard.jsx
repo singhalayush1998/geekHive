@@ -8,6 +8,7 @@ import axios from "axios";
 import { PDFReader } from "reactjs-pdf-reader";
 
 function PublicDashboard() {
+
   const [Publics, setpublic] = useState(true);
   const [privates, setprivate] = useState(false);
   const [profile, setprofile] = useState(false);
@@ -30,6 +31,7 @@ function PublicDashboard() {
     setprivate(true);
   };
 
+
   return (
     <>
       <div className="dashboardBody">
@@ -47,7 +49,9 @@ function PublicDashboard() {
           </div>
           <div className="right-container">
             <div className="nav-container">
+
               <img src={hive} alt="" />
+
             </div>
             <div className="Select-container">
               <div className="midContaintBox">

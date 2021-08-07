@@ -89,8 +89,8 @@
 }
 .Members{ 
     height: 82.5vh;
-    
-    width: 40%;
+    width: 33%;
+
     padding: 0px 10px;
     background-color: white;
     border-radius:10px;
@@ -100,7 +100,7 @@
 }
 .midContaintBox2{
     height: 82.5vh;
-    width: 69%;
+    width: 60%;
     padding: 0px 15px;
    
 
