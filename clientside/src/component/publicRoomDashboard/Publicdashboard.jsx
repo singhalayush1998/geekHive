@@ -65,8 +65,12 @@ function PublicDashboard() {
       <div className="dashboardBody">
         <div className="container">
           <div className="profiles">
-            <img className="logo" src={logo} alt="" />
-            <div className="profiles-container">
+            {/* <img className="logo" src={logo} alt="" /> */}
+                <div className="newone">
+                        U
+                    </div>
+            <div className="profiles-container" onClick={handlediscussion}>
+
               <img src={discussion} alt="" />
               <strong>Discussion</strong>
             </div>
@@ -77,7 +81,7 @@ function PublicDashboard() {
           </div>
           <div className="right-container">
             <div className="nav-container">
-              <img src={hive} alt="" />
+              <img src={logo} alt="" />
               <div className="remove">
                 <Link style={{textDecoration: "none"}} to="/dashboard">  <div className="leave"> 🤫 Leave Quitely</div></Link> 
                 <div className="exit" onClick={handleExitGroup}> Exit Group</div>
