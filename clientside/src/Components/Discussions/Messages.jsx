@@ -19,7 +19,7 @@ export {Messages}
 
 const Wrapper = styled.div`
     color: #273876;
-    width: 60%;
+    width: 100%;
 `
 const Box = styled.div`
     padding: 2px 2px;
@@ -27,6 +27,7 @@ const Box = styled.div`
     width: 97%;
     height: 350px;
 `
+
 
 // const Container = styled.div`
 //     overflow: scroll;
