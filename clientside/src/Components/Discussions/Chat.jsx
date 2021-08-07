@@ -92,7 +92,7 @@ const Chat = () => {
         setUsers(users);
         });
     },[])
-    console.log(users)
+    // console.log(users)
 
     //function for sending message
     const sendMessage = (event) => {
@@ -114,7 +114,7 @@ const Chat = () => {
                     <Messages messages={messages} name={name} />
                 <InputBox message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </Container>
-            <Users>
+            {/* <Users>
                 {
                     users?.map((i) => (
                         <div key={i.id}>
@@ -122,7 +122,7 @@ const Chat = () => {
                         </div>
                     ))
                 }
-            </Users>
+            </Users> */}
         </Wrapper>
     )
 }
