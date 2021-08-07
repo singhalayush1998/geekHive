@@ -68,13 +68,29 @@
     overflow: auto;
     
 }
-
+.nav-container{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
 .nav-container>img{ 
     height: 60px;
    margin-left:30px;
    margin-top: 5px;
+}
 
+.logout{
+    background-color:#26397b;
+    height: 35px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border-radius:20px;
+    width: 111px;
+    margin-right:30px;
 
+    color:white;
+    cursor: pointer;
 }
 
 
