@@ -46,13 +46,18 @@ router.patch("/addmember",async (req,res)=>{
         if(!userExists){
             res.status(401).json({message:"User doesn't exist please sign up"})
         }
-        const group =await Group.findById(req.query.room)
+        let group =await Group.findById(req.query.room)
         if(!group){
             res.status(401).json({message:"Please give a valid Group id"})
         }
-        if(!group.members.includes(userId)){
-            group.members.push(userId)
-        }
+        
+          group = await Group.findOneAndUpdate(
+            { _id: req.query.room },
+            { $addToSet: { members: userId } },
+            {
+              new: true,
+            }
+          );
         res.status(201).json({group:group})
     }catch(err){
         res.status(500).json(err)
