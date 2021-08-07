@@ -55,7 +55,6 @@ const Chat = () => {
         }
     }
 
-
     return (
         <Wrapper>
             <Container>

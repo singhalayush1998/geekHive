@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import {Link} from "react-router-dom"
 
 const Navbar = () => {
     return (
@@ -10,9 +11,11 @@ const Navbar = () => {
                     <p>About</p>
                     <p>Help</p>
                     <p>Contact</p>
-                    <div>
+                    <Link to="/login"><p>Login</p></Link>
+                    <Link to="/signup"><button>Sign Up</button></Link>
+                    {/* <div>
                         U
-                    </div>
+                    </div> */}
                 </NavItems>
             </Container>
         </Wrapper>
@@ -64,5 +67,20 @@ const NavItems =styled.div`
             text-decoration: underline;
 
         }
+    }
+    a{
+        text-decoration: none;
+    }
+    button {
+        outline: none;
+        padding: 10%;
+        width: 80px;
+        background: #25397B;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 12px;
     }
 `
