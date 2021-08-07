@@ -7,24 +7,22 @@ import mine from "../../assets/mygroups.png";
 import hive from "../../assets/hivetext.jpeg";
 import Publiccard from "../Public room/publiccard";
 import axios from "axios"
+import { Redirect, useHistory } from "react-router";
 
 
 function Dashboard() {
   const [Publics, setpublic] = useState(true)
   const [privates, setprivate] = useState(false)
   const [profile, setprofile] = useState(false)
- const [groups, setGroups]= useState([])
-
-useEffect(() => {
- 
-  axios.get("http://localhost:1997/newGroup")
-  .then((response) =>setGroups(response.data))
-  
-
-}, [ ])
+  const [groups, setGroups]= useState([])
+  const loginedUserId = JSON.parse(localStorage.getItem("user"))
+  const history = useHistory()
 
 
-
+  useEffect(() => {
+    axios.get("http://localhost:1997/newGroup")
+    .then((response) =>setGroups(response.data))
+  }, [])
 
   const handlepublic=()=>{ 
     setpublic(true)
@@ -42,6 +40,19 @@ useEffect(() => {
     setprofile(true)
     setprivate(false)
   }
+  const handleLogout = ()=>{
+    localStorage.clear()
+    history.push("/")
+
+  }
+    // loginedUserId = JSON.parse(loginedUserId)
+  useEffect(()=>{
+    console.log(loginedUserId)
+    if(!loginedUserId){
+      history.push("/login")
+    }
+  },[loginedUserId])
+
   return (
     <>
       <div className="dashboardBody">
@@ -67,7 +78,7 @@ useEffect(() => {
           <div className="right-container">
             <div className="nav-container">
               <img src={hive} alt="" />
-             
+              <div className="logout" onClick={handleLogout}>Logout</div>
             </div>
             <div className="Select-container">
 

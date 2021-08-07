@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Redirect, useHistory } from 'react-router';
 import styled from "styled-components"
 // import imageicon from "./loginicon.jpg"
 // import iconimg from "./iconimg.jpeg"
@@ -8,8 +9,8 @@ const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [user, setUser] = useState([])
-
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
+    const history = useHistory()
     // console.log(email, password)
 
     const handleLogin = () => {
@@ -20,9 +21,18 @@ const Login = () => {
         .then((res) => setUser(res.data.data))
         .catch((err) => console.log(err))
         //console.log(user)
-        localStorage.setItem("user", JSON.stringify(user))
+        
     }
 
+    // let loginedUserId = JSON.parse(localStorage.getItem("user"))
+    console.log(user)
+    useEffect(() => {
+        localStorage.setItem("user", JSON.stringify(user))
+        if(user){
+            history.push("/dashboard")
+        }
+    }, [user])
+    
     return (
         <>
             <Wrapper>
