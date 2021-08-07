@@ -6,8 +6,11 @@ const addUser = ({ id, name, room }) => {
 
   const existingUser = users.find((user) => user.room === room && user.name === name);
 
-  if(!name || !room) return { error: 'Username and room are required.' };
-  if(existingUser) return { error: 'Username is taken.' };
+  if(!name) return { error: 'Username are required.' };
+  if(!room) return { error: 'room are required.' };
+
+  if(existingUser) return {existingUser}
+
 
   const user = { id, name, room };
 
@@ -15,6 +18,7 @@ const addUser = ({ id, name, room }) => {
 
   return { user };
 }
+
 
 const removeUser = (id) => {
   const index = users.findIndex((user) => user.id === id);

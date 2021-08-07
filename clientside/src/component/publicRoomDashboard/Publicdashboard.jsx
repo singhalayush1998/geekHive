@@ -6,10 +6,11 @@ import discussion from "../../assets/discussion.png";
 import hive from "../../assets/hivetext.jpeg";
 import axios from "axios";
 import { PDFReader } from "reactjs-pdf-reader";
+import { Chat } from "../../Components/Discussions/Chat";
 
 function PublicDashboard() {
 
-  const [Publics, setpublic] = useState(true);
+  const [publics, setpublic] = useState(true);
   const [privates, setprivate] = useState(false);
   const [profile, setprofile] = useState(false);
   const [groups, setGroups] = useState([]);
@@ -49,27 +50,25 @@ function PublicDashboard() {
           </div>
           <div className="right-container">
             <div className="nav-container">
-
               <img src={hive} alt="" />
-
             </div>
             <div className="Select-container">
               <div className="midContaintBox">
                 <div className="midContaintBox2">
-                  <h1>WellCome to</h1>
-                  <strong> {1}</strong>
                   <div className="disscussiobBox">
                     <PDFReader
                       url={
                         "https://www.unl.edu/gradstudies/current/teaching/Syllabus_Sample.pdf"
                       }
-                      scale={1.3}
+                      scale={1}
                       showAllPage={true}
                       width={400}
                     />
                   </div>
                 </div>
-                <div className="Members"></div>
+                <div className="Members">
+                  <Chat/>
+                </div>
               </div>
             </div>
           </div>
