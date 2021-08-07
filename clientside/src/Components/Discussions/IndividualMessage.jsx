@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactEmoji from "react-emoji"
+import styled from "styled-components"
 
 const IndividualMessage = ({ message: { text, user }, name }) => {
     let isSentByCurrentUser = false;
@@ -12,23 +13,71 @@ const IndividualMessage = ({ message: { text, user }, name }) => {
     return (
         isSentByCurrentUser
         ? (
-            <div className="messageContainer justifyEnd">
-                <p className="sentText pr-10">{trimmedName}</p>
-                <div className="messageBox backgroundBlue">
-                    <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
+            <OwnMessage>
+                <div>
+                    <h3>{ReactEmoji.emojify(text)}</h3>
+                    <p>{trimmedName}</p>
                 </div>
-            </div>
+            </OwnMessage>
             )
             : 
             (
-                <div className="messageContainer justifyStart">
-                    <div className="messageBox backgroundLight">
-                    <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
-                    </div>
-                    <p className="sentText pl-10 ">{user}</p>
+            <UserMessage>
+                <div>
+                    <h3>{ReactEmoji.emojify(text)}</h3>
+                    <p>{user}</p>
                 </div>
+            </UserMessage>
             )
     )
 }
 
 export {IndividualMessage}
+
+const OwnMessage = styled.div`
+    min-height: 50px;
+    margin: 5px 0px;
+    div {
+        background: #273876;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 10px;
+    }
+    h3 {
+        font-weight: 400;
+        font-size: 16px;
+        margin: 0px;
+        padding: 0px;
+    }
+    p{
+        margin: 0px;
+        padding: 0px;
+        font-size: 12px;
+        color: whitesmoke;
+        text-align: right;
+    }
+`
+
+const UserMessage = styled.div`
+    min-height: 50px;
+    div {
+        background: whitesmoke;
+        color: #273876;
+        padding: 5px 15px;
+        border-radius: 10px;
+    }
+    h3 {
+        font-weight: 400;
+        font-size: 16px;
+        margin: 0px;
+        padding: 0px;
+    }
+    p{
+        margin: 0px;
+        padding: 0px;
+        font-size: 12px;
+        color: #273876;
+        text-align: right;
+    }
+`
+

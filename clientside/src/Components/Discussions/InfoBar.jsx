@@ -1,18 +1,22 @@
 import React from 'react'
-// import "./infobar.css"
+import styled from "styled-components"
 
 const InfoBar = ({room}) => {
     return (
-        <div className="infoBar">
-            <div className="leftInnerContainer">
-            <img className="onlineIcon" src="onlineIcon" alt="online icon" />
-            <h3>{room}</h3>
-            </div>
-            <div className="rightInnerContainer">
-            <a href="/"><img src="closeIcon" alt="close icon" /></a>
-            </div>
-        </div>
+        <Wrapper>
+            <img className="onlineIcon" src="onlineIcon" alt="" />
+            <h3>Quick Discussions</h3>
+        </Wrapper>
     )
 }
 
 export {InfoBar}
+
+const Wrapper = styled.div`
+    display: flex;
+    gap: 15px;
+    h3 {
+        color: #263A7C;
+    }
+
+`

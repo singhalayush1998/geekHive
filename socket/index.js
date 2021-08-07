@@ -1,17 +1,26 @@
 const http = require('http');
 const express = require('express');
-const socketio = require('socket.io');
-const cors = require('cors');
+// const socketio = require('socket.io');
+// const cors = require('cors');
+
+const io = require("socket.io")(2244, {
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
 
 const {addUser, removeUser, getUser, getUserInRoom} = require("./user")
 
 const router = require('./router');
 
 const app = express();
-const server = http.createServer(app);
-const io = socketio(server);
-app.use(cors());
+// const server = http.createServer(app);
+// const io = socketio(server);
+// app.use(cors());
 app.use(router);
+
+
+
 
 
 io.on('connect', (socket) => {
@@ -23,7 +32,7 @@ io.on('connect', (socket) => {
       if(error) return callback(error)
       //admin generated message
       socket.join(user.room)
-      socket.emit('message', {user: 'admin', text: `${user.name}, Welcome to ${user.room} group`})
+      socket.emit('message', {user: 'admin', text: `${user.name}, Welcome, Hope your day is producive.`})
 
       socket.broadcast.to(user.room).emit('message', {user: 'admin', text: `${user.name} has joined.`})
 
@@ -52,5 +61,5 @@ io.on('connect', (socket) => {
 });
 
 
-const port = 2244
-server.listen(port, () => console.log(`Server is Listening to port ${port}`))
+// const port = 2244
+// io.listen(port, () => console.log(`Server is Listening to port ${port}`))
