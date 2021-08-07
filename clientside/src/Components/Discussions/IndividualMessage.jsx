@@ -52,7 +52,6 @@ const OwnMessage = styled.div`
         padding: 5px 15px;
         border-radius: 10px;
         word-wrap: break-word;
-        
     }
     h3 {
         font-weight: 400;

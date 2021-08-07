@@ -1,0 +1,40 @@
+.maincontent {
+    margin: auto;
+    width: 55rem;
+    box-shadow: 0 0 5px 5px grey;
+    border-radius: 15px;
+    height: 80vh;
+    display: flex;
+    background-color: white;
+}
+
+.leftside {
+    border-radius: 14px 0 0 14px;
+    width: 50%;
+}
+
+.btn1 {
+width: 18rem;
+height: 35px;
+border: 1px solid grey;
+background-color: transparent;
+box-shadow: 0 0 1px 1px lightgrey;
+cursor: pointer;
+}
+
+.input1 {
+width: 17.5rem;
+margin-top: 20px;
+height: 35px;
+border: 1px solid grey;
+}
+
+.lgnbtn {
+width: 18rem;
+height: 35px;
+border: 1px solid #090963;
+color: white;
+background-color: #090963;
+margin-top: 30px;
+cursor: pointer;
+}
