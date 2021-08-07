@@ -18,8 +18,8 @@ function PublicDashboard() {
   const [groupData, setGroupsData] = useState([]);
   const [afterExit, setafterExitData] = useState([]);
 
-  let loginedUserId = localStorage.getItem("user")
-  loginedUserId = JSON.parse(loginedUserId)
+  let loginedUserId = JSON.parse(localStorage.getItem("user"))
+  // loginedUserId = JSON.parse()
   
   const {id} = useParams()
   const history = useHistory()  
@@ -45,13 +45,13 @@ function PublicDashboard() {
   
   
  
+  // if(!loginedUserId){
+  //   return <Redirect push to="/login" />
+  // }
 
-  if(loginedUserId == undefined){
-    return <Redirect push to="/login" />
-  }
   const handleExitGroup=()=>{
     let payload = {
-      id:loginedUserId._id
+      id:loginedUserId?._id
     }
     axios
       .patch(`http://localhost:1997/removemember/${id}`,payload)
