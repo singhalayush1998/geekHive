@@ -37,11 +37,15 @@ export {IndividualMessage}
 const OwnMessage = styled.div`
     min-height: 50px;
     margin: 5px 0px;
+    width: 60%;
+    /* justify-content: end; */
+    
     div {
         background: #273876;
         color: #fff;
         padding: 5px 15px;
         border-radius: 10px;
+        /* margin-left: 70px; */
     }
     h3 {
         font-weight: 400;
