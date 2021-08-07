@@ -9,7 +9,7 @@ const reqString = {
 const publicGroupSchema = new mongoose.Schema(
     {
         group_name : reqString,
-        material:[reqString],
+        material:[{type: String}],
         description: reqString,
         members:[mongoose.Schema.Types.ObjectId]
     },

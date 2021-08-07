@@ -24,9 +24,9 @@ const Routes = () => {
             <Route exact path="/login">
                 <Login/>
             </Route>
-            <Route exact path="/webcam">
+            {/* <Route exact path="/webcam">
                 <Webcam/>
-            </Route>
+            </Route> */}
         </Switch>
     )
 }
