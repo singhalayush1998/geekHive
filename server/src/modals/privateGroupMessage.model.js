@@ -7,7 +7,7 @@ const reqString = {
 };
 
 
-const PublicMessageSchema=  mongoose.Schema({
+const PrivateMessageSchema=  mongoose.Schema({
     groupid:reqString,
     senderid:reqString,
     text: reqString,
@@ -16,6 +16,6 @@ const PublicMessageSchema=  mongoose.Schema({
 )
 
 
-const publicMessageModel = mongoose.model('publicmessages', PublicMessageSchema);
+const privateMessageModel = mongoose.model('privatemessages', PrivateMessageSchema);
 
-module.exports = publicMessageModel;
+module.exports = privateMessageModel;
