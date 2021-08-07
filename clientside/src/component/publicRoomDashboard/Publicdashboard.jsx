@@ -3,7 +3,6 @@ import "./Publicdashboard.css";
 import logo from "../../assets/logo.jpeg";
 import material from "../../assets/material.png";
 import discussion from "../../assets/discussion.png";
-import hive from "../../assets/hivetext.jpeg";
 import axios from "axios";
 import { PDFReader } from "reactjs-pdf-reader";
 import { Chat } from "../../Components/Discussions/Chat";
@@ -78,6 +77,11 @@ function PublicDashboard() {
               <img src={material} alt="" />
               <strong>Material</strong>
             </div>
+            <Link to="/webcam">
+            <div className="profiles-container">
+                <strong>Join Web</strong>
+            </div>
+            </Link>
           </div>
           <div className="right-container">
             <div className="nav-container">

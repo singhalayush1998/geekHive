@@ -7,9 +7,9 @@ function Publiccard({ group_name, description, roomid ,members}) {
     let loginedUserId = localStorage.getItem("user")
     loginedUserId = JSON.parse(loginedUserId)
     const goToRoom = (e) => {
-        console.log(loginedUserId._id,roomid)
+        console.log(loginedUserId?._id,roomid)
         const payload = {
-            id: loginedUserId._id.toString()
+            id: loginedUserId?._id.toString()
         }
         if(!roomid){
             e.preventDefault()
