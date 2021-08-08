@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import styled from "styled-components"
 // import imageicon from "./loginicon.jpg"
 // import iconimg from "./iconimg.jpeg"
@@ -9,8 +9,8 @@ const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [user, setUser] = useState([])
-
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
+    const history = useHistory()
     // console.log(email, password)
 
     const handleLogin = () => {
@@ -21,9 +21,18 @@ const Login = () => {
         .then((res) => setUser(res.data.data))
         .catch((err) => console.log(err))
         //console.log(user)
-        localStorage.setItem("user", JSON.stringify(user))
+        
     }
 
+    // let loginedUserId = JSON.parse(localStorage.getItem("user"))
+    console.log(user)
+    useEffect(() => {
+        localStorage.setItem("user", JSON.stringify(user))
+        if(user){
+            history.push("/dashboard")
+        }
+    }, [user])
+    
     return (
         <>
             <Wrapper>
@@ -39,7 +48,9 @@ const Login = () => {
                         </div>
                         <button onClick={handleLogin} >LOGIN</button>
                         <p>Don't have an account yet? <Link style={{ textDecoration:"none"}} to="/signup"><span>Signup.</span></Link></p>
+                        <Link style={{ textDecoration:"none" , marginLeft:"130px"}} to="/">back to dashboard</Link>
                     </InnerDiv>
+                    
                 </Container1>
                 <Middle>
                     <h4>New Updated Available</h4>

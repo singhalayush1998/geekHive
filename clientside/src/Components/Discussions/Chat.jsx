@@ -14,8 +14,8 @@ const Chat = () => {
     let {id} = useParams()
     let loginedUserId = localStorage.getItem("user")
     loginedUserId = JSON.parse(loginedUserId)
-    console.log(loginedUserId.username)
-    const [name, setName] = useState(loginedUserId.username);
+    console.log(loginedUserId?.username)
+    const [name, setName] = useState(loginedUserId?.username);
     const [room, setRoom] = useState(id);
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
@@ -92,6 +92,7 @@ const Chat = () => {
         setUsers(users);
         });
     },[])
+    // console.log(users)
 
     //function for sending message
     const sendMessage = (event) => {
@@ -113,6 +114,15 @@ const Chat = () => {
                     <Messages messages={messages} name={name} />
                 <InputBox message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </Container>
+            {/* <Users>
+                {
+                    users?.map((i) => (
+                        <div key={i.id}>
+                            
+                        </div>
+                    ))
+                }
+            </Users> */}
         </Wrapper>
     )
 }
@@ -128,6 +138,6 @@ const Container = styled.div`
 
 `
 
-// const MessageBox = styled.div`
+const Users = styled.div`
 
-// `
+`

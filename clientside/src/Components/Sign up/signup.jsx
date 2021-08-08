@@ -30,7 +30,7 @@ const Signup = () => {
             <Wrapper>
                 <Container1>
                     <InnerDiv>
-                        <h1>Do sign up here</h1>
+                        <h1>Sign up here</h1>
                         {/* <button>Signup From Google</button> */}
                         <Input placeholder="Enter your username" onChange={(e) => setUsername(e.target.value)}/>
                         <Input placeholder="Your Email" onChange={(e) => setEmail(e.target.value)}/>
@@ -41,6 +41,7 @@ const Signup = () => {
                         </div>
                         <button onClick={handlesignup} >Sign Up</button>
                         <p>Have an account ? <Link style={{ textDecoration:"none"}} to="/login"><span>login .</span></Link></p>
+                        <Link style={{ textDecoration:"none" , marginLeft:"130px"}} to="/">back to dashboard</Link>
                     </InnerDiv>
                 </Container1>
                 <Middle>
