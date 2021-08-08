@@ -11,6 +11,7 @@ import { Redirect, useHistory } from "react-router";
 import styled from "styled-components"
 import { Button, Modal, Paper, TextField } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import PrivateCard from "../privateDashboard/PrivateCard";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -29,9 +30,10 @@ function Dashboard() {
   const classes = useStyles();
   const [Publics, setpublic] = useState(true)
   const [privates, setprivate] = useState(false)
+  const [privGroup, setPrivGroup] = useState([])
   const [profile, setprofile] = useState(false)
   const [groups, setGroups]= useState([])
-  const [popup, setPopup] = useState(false)
+  // const [popup, setPopup] = useState(false)
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
   const [open, setOpen] = React.useState(false);
@@ -66,7 +68,7 @@ function Dashboard() {
       }
     }
     // let rest = groups?.filter((i, index) => i.group_name !== searchData[index].group_name)
-    console.log(groups)
+    // console.log(groups)
     if(searchData){
       setGroups([...searchData, ...rest])
     }
@@ -83,7 +85,13 @@ function Dashboard() {
   useEffect(() => {
     axios.get("http://localhost:1997/newGroup")
     .then((response) =>setGroups(response.data))
+
   }, [open])
+
+  useEffect(() => {
+    axios.get("http://localhost:1997/newPrivateGroup")
+    .then((res) => setPrivGroup(res.data))
+  },[])
 
   const handlepublic=()=>{ 
     setpublic(true)
@@ -136,7 +144,7 @@ function Dashboard() {
           <div className="profiles">
             {/* <img className="logo" src={logo} alt="" /> */}
             <div className="newone">
-                        U
+                        {loginedUserId?.username[0]}
                     </div>
             <div className="profiles-container" onClick={handlepublic}>
               <img src={Public} alt="" />
@@ -182,7 +190,21 @@ function Dashboard() {
               />) 
 
               }
+              {privates&& privGroup?.map(el =><PrivateCard
+               group_name={el.group_name}
+               description={el.description}
+               passcode ={el.password}
+              //  members={el.members}
+               roomid={el._id}
+               
+
+              />) 
+
+              }
             </div>
+
+
+              
           </div>
           {
             <Modal style={{
