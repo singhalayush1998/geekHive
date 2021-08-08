@@ -10,7 +10,6 @@ import { PDFReader } from "reactjs-pdf-reader";
 import { Chat } from "../../Components/Discussions/Chat";
 import { Link } from "react-router-dom";
 import { Redirect, useHistory, useParams } from "react-router";
-import docs from "../../assets/law.pdf";
 
 function PublicDashboard() {
   const [Notes, setNotes] = useState(true);
