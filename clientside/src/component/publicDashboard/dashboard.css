@@ -101,9 +101,12 @@
     padding: 0px 5px;
     margin-left: 30%;
     background-color: white;
-    border: 1px solid lightgray;
+    border:none;
+    outline: none;
+    font-weight: 700;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     color:#25397B
 }
 
@@ -122,18 +125,21 @@
 }
 .searchbox{
     position: fixed;
-    width: 350px;
+    width: 250px;
     background-color: yellow;
         height: 30px;
         margin: auto 0px;
         padding: 5px;
         font-size:15px;
-        font-weight:600;
+        font-weight:500;
         background-color: white;
         border: none;
+        border-bottom: 2px solid #25397B;
         outline: none;
+        font-size: 16px;
         margin-left: 150px;
-}
+        color: #25397B;
+    }
 
 .create{
     background-color:#26397b;

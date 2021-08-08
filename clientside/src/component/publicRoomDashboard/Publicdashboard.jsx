@@ -26,6 +26,10 @@ function PublicDashboard() {
     axios
       .get(`http://localhost:1997/newGroup/${id}`)
       .then((res) => setGroupsData(res.data.ind))
+    console.log("again")
+      axios
+      .get(`http://localhost:1997/newPrivateGroup/${id}`)
+      .then((res) => setGroupsData(res.data.ind))
   }, [id]);
 
   // console.log(groupData)
@@ -68,7 +72,7 @@ function PublicDashboard() {
           <div className="profiles">
             {/* <img className="logo" src={logo} alt="" /> */}
                 <div className="newone">
-                        U
+                {loginedUserId?.username[0]}
                     </div>
             <div className="profiles-container" >
 
@@ -106,7 +110,6 @@ function PublicDashboard() {
                     <PDFReader
                       url={
                         "http://kretschmer.cc/pdf/introduction_1.pdf"
-
                       }
                       scale={1}
                       showAllPage={true}
