@@ -130,7 +130,7 @@
     width: 50px;
     height: 50px;
     margin-top: 6px;
-    background-color: #fff;
+    background-color:rgb(94,186,68);
     color: #25397B;
     margin-left: 30%;
     margin-top: 18%;
@@ -138,6 +138,7 @@
     align-items: center;
     text-align: center;
     font-size: 32px;
+    color:white;
     cursor:pointer; 
 }
 
