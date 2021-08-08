@@ -5,6 +5,7 @@ import PublicDashboard from '../component/publicRoomDashboard/Publicdashboard'
 import { Landing } from '../Components/Landing/Landing'
 import { Login } from '../Components/Login/Login'
 import { Navbar } from '../Components/Navbar/Navbar'
+import { Signup } from '../Components/Sign up/signup'
 import { Webcam } from '../Webcam/Webcam'
 
 const Routes = () => {
@@ -24,9 +25,9 @@ const Routes = () => {
             <Route exact path="/login">
                 <Login/>
             </Route>
-            {/* <Route exact path="/webcam">
-                <Webcam/>
-            </Route> */}
+            <Route exact path="/signup">
+               <Signup/>
+            </Route>
         </Switch>
     )
 }

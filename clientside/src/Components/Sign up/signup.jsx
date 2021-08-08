@@ -1,56 +1,48 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from "styled-components"
-// import imageicon from "./loginicon.jpg"
-// import iconimg from "./iconimg.jpeg"
 
-const Login = () => {
 
+const Signup = () => {
+    const history= useHistory()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
-    const history = useHistory()
+    const [username, setUsername] = useState("")
+
     // console.log(email, password)
 
-    const handleLogin = () => {
-        axios.post("http://localhost:1997/login", {
+    const handlesignup = () => {
+        axios.post("http://localhost:1997/register", {
+            username: username,
             email: email,
             password: password
         })
-        .then((res) => setUser(res.data.data))
+        .then((res) => history.push("/login"))
         .catch((err) => console.log(err))
-        //console.log(user)
-        
+       
+      
     }
 
-    // let loginedUserId = JSON.parse(localStorage.getItem("user"))
-    console.log(user)
-    useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(user))
-        if(user){
-            history.push("/dashboard")
-        }
-    }, [user])
-    
     return (
         <>
             <Wrapper>
                 <Container1>
                     <InnerDiv>
-                        <h1>Login to your Account</h1>
-                        {/* <button>Login From Google</button> */}
+                        <h1>Sign up here</h1>
+                        {/* <button>Signup From Google</button> */}
+                        <Input placeholder="Enter your username" onChange={(e) => setUsername(e.target.value)}/>
                         <Input placeholder="Your Email" onChange={(e) => setEmail(e.target.value)}/>
                         <Input type="password" placeholder="Your Password" onChange={(e) => setPassword(e.target.value)}/>
                         <div>
                             <p></p>
                             <p>Forgot Password?</p>
                         </div>
-                        <button onClick={handleLogin} >LOGIN</button>
-                        <p>Don't have an account yet? <Link style={{ textDecoration:"none"}} to="/signup"><span>Signup.</span></Link></p>
+                        <button onClick={handlesignup} >Sign Up</button>
+                        <p>Have an account ? <Link style={{ textDecoration:"none"}} to="/login"><span>login .</span></Link></p>
                         <Link style={{ textDecoration:"none" , marginLeft:"130px"}} to="/">back to dashboard</Link>
                     </InnerDiv>
-                    
                 </Container1>
                 <Middle>
                     <h4>New Updated Available</h4>
@@ -66,7 +58,7 @@ const Login = () => {
     )
 }
 
-export {Login}
+export {Signup}
 
 const Wrapper = styled.div`
     display: flex;
@@ -162,5 +154,3 @@ const Input = styled.input`
     border-radius: 5px;
     margin: 5px;
 `
-
-    
