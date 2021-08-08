@@ -35,6 +35,10 @@ function Dashboard() {
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
   const [open, setOpen] = React.useState(false);
+  const [query, setQuery] = useState("")
+  const [searchData, setSearchData] = useState([])
+  // const [restData, setRestData] = useState([])
+  // const [concats, setConcat] = 
 
   const handleOpen = () => {
     setOpen(true);
@@ -44,6 +48,33 @@ function Dashboard() {
     setOpen(false);
   };
 
+  const handleSearch = () => {
+    axios.get(`http://localhost:1997/search?s=${query}`)
+    .then((res) => searchParams(res.data.data))
+    .catch((err) => console.log(err))
+}
+
+  const searchParams= (data) => {
+    setSearchData(data)
+    let rest = []
+
+    for(let i=0; i<groups.length; i++){
+      for(let j=0; j<searchData.length; j++){
+        if(groups[i]._id !== searchData[j]._id){
+          rest.push(groups[i])
+        }
+      }
+    }
+    // let rest = groups?.filter((i, index) => i.group_name !== searchData[index].group_name)
+    console.log(groups)
+    if(searchData){
+      setGroups([...searchData, ...rest])
+    }
+  }
+
+  // useEffect(() => {
+  //   searchParams()
+  // },[groups])
 
   const loginedUserId = JSON.parse(localStorage.getItem("user"))
   const history = useHistory()
@@ -77,7 +108,6 @@ function Dashboard() {
   }
     // loginedUserId = JSON.parse(loginedUserId)
   useEffect(()=>{
-    console.log(loginedUserId)
     if(!loginedUserId){
       history.push("/login")
     }
@@ -129,6 +159,13 @@ function Dashboard() {
           <div className="right-container">
             <div className="nav-container">
               <img src={logo} alt="" />
+              <input
+              className="searchbox"
+                placeholder="Find Rooms"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                />
+                <button className="searchbtn" onClick={handleSearch}> Search </button>
               <button className="create" onClick={handleOpen}>Create New Group</button>
               <div className="logout" onClick={handleLogout}>Logout</div>
             </div>

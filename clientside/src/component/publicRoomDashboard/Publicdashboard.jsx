@@ -25,8 +25,10 @@ function PublicDashboard() {
   useEffect(() => {
     axios
       .get(`http://localhost:1997/newGroup/${id}`)
-      .then((res) => setGroupsData(res.data))
+      .then((res) => setGroupsData(res.data.ind))
   }, [id]);
+
+  // console.log(groupData)
 
   // const handlediscussion = () => {
   //   setpublic(true);
@@ -85,7 +87,13 @@ function PublicDashboard() {
           </div>
           <div className="right-container">
             <div className="nav-container">
-              <img src={logo} alt="" />
+                <div className="grps">
+                <img src={logo} alt="" />
+                <div>
+                  <h2>{groupData?.group_name}</h2>
+                  <p>{groupData?.description}</p>
+                  </div>
+                  </div>
               <div className="remove">
                 <Link style={{textDecoration: "none"}} to="/dashboard">  <div className="leave"> 🤫 Leave Quitely</div></Link> 
                 <div className="exit" onClick={handleExitGroup}> Exit Group</div>

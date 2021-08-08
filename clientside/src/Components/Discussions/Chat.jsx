@@ -92,7 +92,7 @@ const Chat = () => {
         setUsers(users);
         });
     },[])
-    // console.log(users)
+    console.log(users)
 
     //function for sending message
     const sendMessage = (event) => {
@@ -110,7 +110,7 @@ const Chat = () => {
     return (
         <Wrapper>
             <Container>
-                <InfoBar room={room} />
+                <InfoBar room={room} users={users} />
                     <Messages messages={messages} name={name} />
                 <InputBox message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </Container>
