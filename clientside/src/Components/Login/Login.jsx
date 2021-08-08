@@ -48,7 +48,7 @@ const Login = () => {
                         </div>
                         <button onClick={handleLogin} >LOGIN</button>
                         <p>Don't have an account yet? <Link style={{ textDecoration:"none"}} to="/signup"><span>Signup.</span></Link></p>
-                        <Link style={{ textDecoration:"none" , marginLeft:"130px"}} to="/">back to dashboard</Link>
+                        <Link style={{ textDecoration:"none" , marginLeft:"130px"}} to="/">Back to dashboard</Link>
                     </InnerDiv>
                     
                 </Container1>
@@ -121,6 +121,10 @@ const InnerDiv = styled.div`
         border: none;
         border-radius: 5px;
         cursor: pointer;
+    }
+    a{
+        color: black;
+        font-size: 14px;
     }
 `
 

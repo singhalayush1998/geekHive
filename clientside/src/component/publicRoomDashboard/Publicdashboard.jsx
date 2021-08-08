@@ -60,7 +60,9 @@ function PublicDashboard() {
         <div className="container">
           <div className="profiles">
             {/* <img className="logo" src={logo} alt="" /> */}
-            <div className="newone">U</div>
+            <div className="newone">
+            {loginedUserId?.username[0]}
+            </div>
             <div onClick={handlequestions} className="profiles-container">
               <img src={material} alt="" />
               <strong>Material</strong>
