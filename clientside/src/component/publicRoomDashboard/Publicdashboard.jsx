@@ -97,7 +97,8 @@ function PublicDashboard() {
                   <div className="disscussiobBox">
                     <PDFReader
                       url={
-                        groupData?.material[0]
+                        "http://kretschmer.cc/pdf/introduction_1.pdf"
+
                       }
                       scale={1}
                       showAllPage={true}
