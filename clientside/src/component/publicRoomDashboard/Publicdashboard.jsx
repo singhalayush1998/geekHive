@@ -89,7 +89,7 @@ function PublicDashboard() {
                   <div className="disscussiobBox">
                     <PDFReader
                       url={
-                        "https://www.unl.edu/gradstudies/current/teaching/Syllabus_Sample.pdf"
+                        groupData?.material[0]
                       }
                       scale={1}
                       showAllPage={true}
