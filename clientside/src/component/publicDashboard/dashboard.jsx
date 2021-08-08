@@ -11,6 +11,7 @@ import { Redirect, useHistory } from "react-router";
 import styled from "styled-components"
 import { Button, Modal, Paper, TextField } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import PrivateCard from "../privateDashboard/PrivateCard";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -29,12 +30,17 @@ function Dashboard() {
   const classes = useStyles();
   const [Publics, setpublic] = useState(true)
   const [privates, setprivate] = useState(false)
+  const [privGroup, setPrivGroup] = useState([])
   const [profile, setprofile] = useState(false)
   const [groups, setGroups]= useState([])
-  const [popup, setPopup] = useState(false)
+  // const [popup, setPopup] = useState(false)
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
   const [open, setOpen] = React.useState(false);
+  const [query, setQuery] = useState("")
+  const [searchData, setSearchData] = useState([])
+  // const [restData, setRestData] = useState([])
+  // const [concats, setConcat] = 
 
   const handleOpen = () => {
     setOpen(true);
@@ -44,6 +50,33 @@ function Dashboard() {
     setOpen(false);
   };
 
+  const handleSearch = () => {
+    axios.get(`http://localhost:1997/search?s=${query}`)
+    .then((res) => searchParams(res.data.data))
+    .catch((err) => console.log(err))
+}
+
+  const searchParams= (data) => {
+    setSearchData(data)
+    let rest = []
+
+    for(let i=0; i<groups.length; i++){
+      for(let j=0; j<searchData.length; j++){
+        if(groups[i]._id !== searchData[j]._id){
+          rest.push(groups[i])
+        }
+      }
+    }
+    // let rest = groups?.filter((i, index) => i.group_name !== searchData[index].group_name)
+    // console.log(groups)
+    if(searchData){
+      setGroups([...searchData, ...rest])
+    }
+  }
+
+  // useEffect(() => {
+  //   searchParams()
+  // },[groups])
 
   const loginedUserId = JSON.parse(localStorage.getItem("user"))
   const history = useHistory()
@@ -52,7 +85,13 @@ function Dashboard() {
   useEffect(() => {
     axios.get("http://localhost:1997/newGroup")
     .then((response) =>setGroups(response.data))
+
   }, [open])
+
+  useEffect(() => {
+    axios.get("http://localhost:1997/newPrivateGroup")
+    .then((res) => setPrivGroup(res.data))
+  },[])
 
   const handlepublic=()=>{ 
     setpublic(true)
@@ -77,7 +116,6 @@ function Dashboard() {
   }
     // loginedUserId = JSON.parse(loginedUserId)
   useEffect(()=>{
-    console.log(loginedUserId)
     if(!loginedUserId){
       history.push("/login")
     }
@@ -106,7 +144,7 @@ function Dashboard() {
           <div className="profiles">
             {/* <img className="logo" src={logo} alt="" /> */}
             <div className="newone">
-                        U
+                        {loginedUserId?.username[0]}
                     </div>
             <div className="profiles-container" onClick={handlepublic}>
               <img src={Public} alt="" />
@@ -129,6 +167,13 @@ function Dashboard() {
           <div className="right-container">
             <div className="nav-container">
               <img src={logo} alt="" />
+              <input
+              className="searchbox"
+                placeholder="Find Rooms"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                />
+                <button className="searchbtn" onClick={handleSearch}> Search </button>
               <button className="create" onClick={handleOpen}>Create New Group</button>
               <div className="logout" onClick={handleLogout}>Logout</div>
             </div>
@@ -145,7 +190,21 @@ function Dashboard() {
               />) 
 
               }
+              {privates&& privGroup?.map(el =><PrivateCard
+               group_name={el.group_name}
+               description={el.description}
+               passcode ={el.password}
+              //  members={el.members}
+               roomid={el._id}
+               
+
+              />) 
+
+              }
             </div>
+
+
+              
           </div>
           {
             <Modal style={{

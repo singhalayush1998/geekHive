@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require("cors")
+const searchController= require("./controllers/search")
 
 const app = express()
 
@@ -23,6 +24,7 @@ const PrivateGroup = require("./controllers/privateGroup.controller")
 app.post("/register",register)
 app.post("/login",login)
 
+app.use("/search", searchController)
 app.use(PublicGroup)
 app.use(PublicGroupMessage)
 app.use(PrivateGroup)

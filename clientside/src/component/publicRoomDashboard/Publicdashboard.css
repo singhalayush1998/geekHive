@@ -104,6 +104,28 @@
   background-color: #fff;
   z-index: 100;
 }
+
+.grps h2 {
+  margin-top: 0px;
+  padding-top: 4px;
+  color: #25397B
+}
+.grps {
+  /* margin-left: -480px; */
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+  align-items: center;
+}
+.grps > img {
+  height: 70px;
+  padding-left: 10px;
+}
+.grps p {
+  font-size: 13px;
+  margin-top: -20px;
+}
+
 .newone {
     width: 50px;
     height: 50px;

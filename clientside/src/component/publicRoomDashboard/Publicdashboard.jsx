@@ -99,7 +99,13 @@ function PublicDashboard() {
           </div>
           <div className="right-container">
             <div className="nav-container">
-              <img src={logo} alt="" />
+                <div className="grps">
+                <img src={logo} alt="" />
+                <div>
+                  <h2>{groupData?.group_name}</h2>
+                  <p>{groupData?.description}</p>
+                  </div>
+                  </div>
               <div className="remove">
                 <Link style={{ textDecoration: "none" }} to="/dashboard">
                   {" "}

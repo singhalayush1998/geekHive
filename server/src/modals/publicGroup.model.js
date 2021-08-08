@@ -4,6 +4,7 @@ const reqString = {
   type: String,
   required: true,
   trim: true,
+  text: true
 };
 
 const publicGroupSchema = new mongoose.Schema(
